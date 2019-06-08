@@ -11,6 +11,13 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//Basic Routes
+Route::get('/', 'BlogController@landing');
+Route::get('/profile', 'BlogController@profile');
+
+
+//Authentication Routes
+Auth::routes();
+Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
+//Ajax Routes
+Route::post('/ajax/updateUser', 'AjaxController@updateUser');
