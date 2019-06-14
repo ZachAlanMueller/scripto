@@ -30,4 +30,28 @@ class AjaxController extends Controller
 			}
   	}
   }
+  function getTags(Request $request){
+  	if(Auth::check()){
+  		try{
+  			$returnVal = DB::table('tags')->get();
+  			return response()->json($returnVal);
+  		}
+			catch(Exception $e){
+				return response($e);
+			}
+  	}
+  }
+  function addTag(Request $request){
+  	if(Auth::check()){
+  		try{
+  			DB::table('tags')->insert([
+			    ['name' => $request->name, 'color' => $request->color]
+				]);
+  			return response()->json('Success');
+  		}
+			catch(Exception $e){
+				return response($e);
+			}
+  	}
+  }
 }

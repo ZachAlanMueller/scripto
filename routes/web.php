@@ -14,10 +14,13 @@
 //Basic Routes
 Route::get('/', 'BlogController@landing');
 Route::get('/profile', 'BlogController@profile');
+Route::get('/blogSettings', 'BlogController@blogSettings');
 
 
 //Authentication Routes
-Auth::routes();
+Auth::routes(['register' => false]);
 Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 //Ajax Routes
 Route::post('/ajax/updateUser', 'AjaxController@updateUser');
+Route::post('/ajax/getTags', 'AjaxController@getTags');
+Route::post('/ajax/addTag', 'AjaxController@addTag');

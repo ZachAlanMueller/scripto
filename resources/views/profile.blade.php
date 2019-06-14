@@ -11,7 +11,9 @@
           <div class="site-heading">
             <h1>Zach Mueller</h1>
             <span class="subheading">Profile</span><br><br>
+            <a href="/blogSettings"><button class="btn btn-primary" >Blog Settings</button></a>
             <a href="/logout"><button class="btn btn-primary" >Logout</button></a>
+
           </div>
         </div>
       </div>
