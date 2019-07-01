@@ -15,6 +15,7 @@
 Route::get('/', 'BlogController@landing');
 Route::get('/profile', 'BlogController@profile');
 Route::get('/blogSettings', 'BlogController@blogSettings');
+Route::get('/newPost', 'BlogController@newPost');
 
 
 //Authentication Routes
@@ -24,3 +25,4 @@ Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 Route::post('/ajax/updateUser', 'AjaxController@updateUser');
 Route::post('/ajax/getTags', 'AjaxController@getTags');
 Route::post('/ajax/addTag', 'AjaxController@addTag');
+Route::post('/ajax/savePost', 'AjaxController@savePost');

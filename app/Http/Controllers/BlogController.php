@@ -19,4 +19,12 @@ class BlogController extends Controller
   function blogSettings(){
   	return view('blogSettings');
   }
+  function newPost(){
+  	if(Auth::check()){
+  		return view('newPost');
+  	}
+  	else{
+  		return redirect('/');
+  	}
+  }
 }
