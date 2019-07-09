@@ -140,6 +140,8 @@
 <div id="container-preview" class="container">
    <div id="preview-holder"></div>
    <br>
+   <div class="float-right" style="color:#504848;font-size:12px;">{{Auth::user()->name}}</div><br>
+   <div class="float-right" style="color:#504848;font-size:12px;">{{date('F jS Y')}}</div><br><br><br>
    <a href="javascript:;" class="float-right preview-switcher"><button class="btn btn-info">Back to Editor</button></a>
 </div>
 <br><br>
@@ -193,7 +195,6 @@
     content = $('.ql-editor').html();
     tags = $('.tokenize-tags').val();
     if(tags.length == 0){
-      console.log('need tags');
       $('#tags-warning').show(500).delay(1000).hide(500);
     }
     else{
@@ -209,6 +210,7 @@
          dataType: 'json',
          success: function (data) {
            console.log(data);
+           window.location.href = "/post/"+data;
          },
          error: function(jq, err, status){
            console.log(jq);
@@ -230,7 +232,7 @@
        url: '/ajax/getTags',
        dataType: 'json',
        success: function (data) {
-        console.log(data);
+        //console.log(data);
         setupTags(data);
        },
        error: function(jq, err, status){
@@ -242,7 +244,6 @@
    }
    function setupTags(data){
     $.each(data, function(i){
-      console.log(data[i]);
       $('.tokenize-tags').append(`<option value="`+data[i]['id']+`">`+data[i]['name']+`</option>`);
     })
     $('.tokenize-tags').tokenize2();

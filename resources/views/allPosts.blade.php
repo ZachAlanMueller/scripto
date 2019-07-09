@@ -21,19 +21,21 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-8 col-md-10 mx-auto">
-        @if(isset($firstPost->title))
+
+        @if(isset($pinnedPosts))
+        @foreach($pinnedPosts as $post)
         <div class="post-preview">
           <div class="row">
             <div class="col-md-7">
-              <a href="/post/{{$firstPost->id}}">
+              <a href="/post/{{$post->id}}">
                 <h2 class="post-title">
-                  {{$firstPost->title}}
+                  {{$post->title}}
                 </h2>
               </a>
             </div>
-            <div class="col-md-5">
+            <div class="col-md-5 tag-area">
               @foreach($tags as $tag)
-              @if($tag->post_id == $firstPost->id)
+              @if($tag->post_id == $post->id)
               <button class="btn btn-success float-right" style="background-color:#{{$tag->color}}; margin: 3px;">{{$tag->name}}</button>
               
               @endif
@@ -41,10 +43,11 @@
             </div>
           </div>
           <p class="post-meta">Posted by
-            <a href="#">{{$firstPost->name}}</a>
-            on {{date('F jS Y', strtotime($firstPost->created_at))}}</p>
+            <a href="#">{{$post->name}}</a>
+            on {{date('F jS Y', strtotime($post->created_at))}}</p>
         </div>
         <hr>
+        @endforeach
         @endif
         @foreach($last4 as $post)
         <div class="post-preview">
@@ -74,7 +77,7 @@
         
         <!-- Pager -->
         <div class="clearfix">
-          <a class="btn btn-primary float-right" href="/post/all">All Posts &rarr;</a>
+          <a class="btn btn-primary float-left" href="/">Home &larr;</a>
         </div>
       </div>
     </div>

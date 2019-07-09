@@ -11,19 +11,19 @@
   <title>Digital Scribe</title>
 
   <!-- Bootstrap core CSS -->
-  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
   <!-- Custom fonts for this template -->
-  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-  <link href='css/font1.css' rel='stylesheet' type='text/css'>
-  <link href='css/font2.css' rel='stylesheet' type='text/css'>
+  <link href="/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href='/css/font1.css' rel='stylesheet' type='text/css'>
+  <link href='/css/font2.css' rel='stylesheet' type='text/css'>
   <meta name="csrf-token" content="{{ csrf_token() }}">
 
   <!-- Custom styles for this template -->
-  <link href="css/clean-blog.min.css" rel="stylesheet">
+  <link href="/css/clean-blog.min.css" rel="stylesheet">
   <link href="//cdn.quilljs.com/1.3.6/quill.core.css" rel="stylesheet">
-  <link href="css/tokenize2.css" rel="stylesheet">
-  <link href="css/quill.snow.css" rel="stylesheet">
+  <link href="/css/tokenize2.css" rel="stylesheet">
+  <link href="/css/quill.snow.css" rel="stylesheet">
 
 
 
@@ -77,7 +77,7 @@
         <div class="col-lg-8 col-md-10 mx-auto">
           <ul class="list-inline text-center">
             <li class="list-inline-item">
-              <a href="#">
+              <a href="https://github.com/ZachAlanMueller">
                 <span class="fa-stack fa-lg">
                   <i class="fas fa-circle fa-stack-2x"></i>
                   <i class="fab fa-github fa-stack-1x fa-inverse"></i>
@@ -92,13 +92,13 @@
   </footer>
 
   <!-- Bootstrap core JavaScript -->
-  <script src="vendor/jquery/jquery.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="/vendor/jquery/jquery.min.js"></script>
+  <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
   <!-- Custom scripts for this template -->
-  <script src="js/clean-blog.min.js"></script>
-  <script src="js/quill.js"></script>
-  <script src="js/tokenize2.js"></script>
+  <script src="/js/clean-blog.min.js"></script>
+  <script src="/js/quill.js"></script>
+  <script src="/js/tokenize2.js"></script>
   @yield('javascript')
 
 </body>

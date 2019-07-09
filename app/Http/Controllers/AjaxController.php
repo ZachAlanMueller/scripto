@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use DB;
 use DateTime;
 use Auth;
+use Uuid;
 
 class AjaxController extends Controller
 {
@@ -60,7 +61,7 @@ class AjaxController extends Controller
   			$IDofInsert;
   			if($request->post_id == 0){ //it's a new post, save everything
   				$IDofInsert = DB::table('posts')->insertGetId(
-				    ['title' => $request->title, 'content' => $request->content, 'private' => $request->private, 'draft' => $request->draft, 'author_id' => Auth::user()->id, 'updated_at' => date("Y-m-d H:i:s"), 'created_at' => date("Y-m-d H:i:s")]);
+				    ['title' => $request->title, 'content' => $request->content, 'private' => $request->private, 'draft' => $request->draft, 'author_id' => Auth::user()->id, 'updated_at' => date("Y-m-d H:i:s"), 'created_at' => date("Y-m-d H:i:s"), 'private_link' => Uuid::generate()->string]);
   				foreach($request->tags as $value){
   					DB::table('post_tag_xref')->insert(['tag_id' => $value, 'post_id' => $IDofInsert]);
   				}

@@ -16,6 +16,9 @@ Route::get('/', 'BlogController@landing');
 Route::get('/profile', 'BlogController@profile');
 Route::get('/blogSettings', 'BlogController@blogSettings');
 Route::get('/newPost', 'BlogController@newPost');
+Route::get('/post/all', 'BlogController@allPosts');
+Route::get('/post/{id}', 'BlogController@viewPost');
+
 
 
 //Authentication Routes
