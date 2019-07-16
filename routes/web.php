@@ -17,7 +17,10 @@ Route::get('/profile', 'BlogController@profile');
 Route::get('/blogSettings', 'BlogController@blogSettings');
 Route::get('/newPost', 'BlogController@newPost');
 Route::get('/post/all', 'BlogController@allPosts');
+Route::get('/post/drafts', 'BlogController@allDrafts');
 Route::get('/post/{id}', 'BlogController@viewPost');
+Route::get('/draft/{id}', 'BlogController@editPost');
+
 
 
 

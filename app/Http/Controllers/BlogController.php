@@ -51,14 +51,26 @@ class BlogController extends Controller
   		return redirect('/');
   	}
   }
+
+  function editPost($id){
+  	if(Auth::check()){
+  		$draft = DB::table('posts')
+  		->where('id', $id)
+  		->first();
+  		$tags = DB::table('tags')
+  		->join('post_tag_xref', 'post_tag_xref.tag_id', '=', 'tags.id')
+  		->where('post_tag_xref.post_id', $id)
+  		->get();
+  		return view('editPost')
+  		->with('draft', $draft)
+  		->with('tags', $tags);
+  	}
+  	else{
+  		return redirect('/');
+  	}
+  }
+
   function viewPost($id){
-  	// $postInfo = DB::table('posts')
-  	// ->join('users', 'posts.author_id', '=', 'users.id')
-  	// ->where('posts.id', $id)
-  	// ->orWhere('private_link', $id)
-  	// ->where('draft', 0)
-  	// ->select('posts.*', 'users.name')
-  	// ->first();
   	$postInfo = DB::table('posts')
   	->join('users', 'posts.author_id', '=', 'users.id')
   	->where('posts.id', $id)
@@ -87,6 +99,35 @@ class BlogController extends Controller
   	->with('postInfo', $postInfo)
   	->with('date', $date);
   }
+  function viewDraft($id){
+  	$postInfo = DB::table('posts')
+  	->join('users', 'posts.author_id', '=', 'users.id')
+  	->where('posts.id', $id)
+  	->where('draft', 1)
+  	->where('private', 1)
+  	->select('posts.*', 'users.name')
+  	->first();
+  	if(is_null($postInfo)){
+  		$publicPost = DB::table('posts')
+  		->join('users', 'posts.author_id', '=', 'users.id')
+  		->where('posts.id', $id)
+  		->where('draft', 1)
+  		->select('posts.*', 'users.name')
+  		->first();
+  		$date = date('F jS Y', strtotime($publicPost->created_at));
+	  	return view('viewPost')
+	  	->with('postInfo', $publicPost)
+	  	->with('date', $date);
+  	}
+  	if(is_null($postInfo)){
+  		return redirect('/');
+  	}
+  	$date = date('F jS Y', strtotime($postInfo
+  		->created_at));
+  	return view('viewDraft')
+  	->with('postInfo', $postInfo)
+  	->with('date', $date);
+  }
   function allPosts(){
   	$firstPost = DB::table('posts')
   	->join('users', 'posts.author_id', '=', 'users.id')
@@ -109,6 +150,22 @@ class BlogController extends Controller
   	return view('allPosts')
   	->with('pinnedPosts', $firstPost)
   	->with('last4', $last4)
+  	->with('tags', $applicableTags);
+  }
+  function allDrafts(){
+  	$allDrafts = DB::table('posts')
+  	->join('users', 'posts.author_id', '=', 'users.id')
+  	->select('posts.*', 'users.name')
+  	->where('pinned', 0)
+  	->where('draft', 1)
+  	->where('private', 0)
+  	->orderBy('posts.created_at', 'desc')
+  	->get();
+  	$applicableTags = DB::table('post_tag_xref')
+  	->join('tags', 'tags.id', '=', 'post_tag_xref.tag_id')
+  	->get();
+  	return view('allDrafts')
+  	->with('allDrafts', $allDrafts)
   	->with('tags', $applicableTags);
   }
 

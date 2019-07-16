@@ -89,13 +89,13 @@
   }
 </style>
 <!-- Page Header -->
-<header class="masthead" id="topPicture" style="background-image: url('img/bg-prof.jpg')">
+<header class="masthead" id="topPicture" style="background-image: url('/img/bg-prof.jpg')">
    <div class="overlay"></div>
    <div class="container">
       <div class="row">
          <div class="col-lg-8 col-md-10 mx-auto">
             <div class="site-heading">
-               <h1 id="post-title" contenteditable="true">New Post</h1>
+               <h1 id="post-title" contenteditable="true">{{$draft->title}}</h1>
                <span class="subheading"></span><br><br>
             </div>
          </div>
@@ -184,6 +184,7 @@
      },
      theme: 'snow'
    });
+   snowQuill.root.innerHTML = "{!!$draft->content!!}"
    function savePost(){
     if( $('input#public').is(':checked') ){
       private = 0;
@@ -249,6 +250,14 @@
    }
    function setupTags(data){
     $.each(data, function(i){
+      @foreach($tags as $tag)
+      var tmp = "{{$tag->name}}";
+      if(tmp == data[i]['name']){
+        $('.tokenize-tags').append(`<option selected value="`+data[i]['id']+`">`+data[i]['name']+`</option>`);
+      }else{
+        $('.tokenize-tags').append(`<option value="`+data[i]['id']+`">`+data[i]['name']+`</option>`);
+      }
+      @endforeach
       $('.tokenize-tags').append(`<option value="`+data[i]['id']+`">`+data[i]['name']+`</option>`);
     })
     $('.tokenize-tags').tokenize2();
