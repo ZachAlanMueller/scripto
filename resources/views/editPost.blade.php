@@ -185,7 +185,7 @@
      },
      theme: 'snow'
    });
-   snowQuill.root.innerHTML = "{!!$draft->content!!}"
+   snowQuill.root.innerHTML = `{!!$draft->content!!}`
    function savePost(){
     if( $('input#public').is(':checked') ){
       private = 0;
