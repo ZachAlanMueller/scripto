@@ -55,7 +55,7 @@
               <td>`+value.id+`</td>
               <td>`+value.name+`</td>
               <td>`+value.color+`</td>
-              <td><a class="btn btn-primary" href="#" style="background-color:#`+value.color+`; min-width:140px;">`+value.name+`</a></td>
+              <td><a class="btn btn-primary btn-tag" href="#" style="background-color:#`+value.color+`;">`+value.name+`</a></td>
             </tr>`);
     });
     $('#tag-table').append(`

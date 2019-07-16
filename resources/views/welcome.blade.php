@@ -34,7 +34,7 @@
             <div class="col-md-5">
               @foreach($tags as $tag)
               @if($tag->post_id == $firstPost->id)
-              <button class="btn btn-success float-right" style="background-color:#{{$tag->color}}; margin: 3px;">{{$tag->name}}</button>
+              <button class="btn btn-success btn-tag float-right" style="background-color:#{{$tag->color}}; margin: 3px;">{{$tag->name}}</button>
               
               @endif
               @endforeach

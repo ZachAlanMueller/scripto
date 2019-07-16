@@ -36,7 +36,7 @@
             <div class="col-md-5 tag-area">
               @foreach($tags as $tag)
               @if($tag->post_id == $post->id)
-              <button class="btn btn-success float-right" style="background-color:#{{$tag->color}}; margin: 3px;">{{$tag->name}}</button>
+              <button class="btn btn-success float-right btn-tag" style="background-color:#{{$tag->color}}; margin: 3px;">{{$tag->name}}</button>
               
               @endif
               @endforeach

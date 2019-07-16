@@ -70,7 +70,7 @@ class AjaxController extends Controller
   				$IDofInsert = $request->post_id;
   				DB::table('posts')->where('id', $request->post_id)->update(
 				    ['title' => $request->title, 'content' => $request->content, 'private' => $request->private, 'draft' => $request->draft, 'author_id' => Auth::user()->id, 'updated_at' => date("Y-m-d H:i:s"), 'created_at' => date("Y-m-d H:i:s")]);
-  				$currTags = DB::table('post_tag_xref')->where('post_id', $request->post_id)->delete();
+  				DB::table('post_tag_xref')->where('post_id', $request->post_id)->delete();
   				foreach($request->tags as $value){
   					DB::table('post_tag_xref')->insert(['tag_id' => $value, 'post_id' => $IDofInsert]);
   				} //bad form deleting and remaking the tags every time, but it's just me posting, shouldn't cause issues
