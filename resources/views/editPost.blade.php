@@ -1,6 +1,6 @@
 @extends('baseplate')
 @section('content')
-
+{{header("Cache-Control: no-cache, no-store, must-revalidate")}}
 <style>
   #post-title:hover {
     cursor: pointer;
