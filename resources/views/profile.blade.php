@@ -12,14 +12,21 @@
             <h1>Zach Mueller</h1>
             <span class="subheading">Profile</span><br><br>
             <div class="row">
-            <div class="col-md-4"><a href="/blogSettings"><button class="btn btn-primary" >Blog Settings</button></a></div>
-            <div class="col-md-4"><a href="/newPost"><button class="btn btn-success">New Post</button></a></div>
-            <div class="col-md-4"><a href="/logout"><button class="btn btn-primary" >Logout</button></a></div>
+              <div class="col-md-4"><a href="/blogSettings"><button class="btn btn-primary" >Blog Settings</button></a></div>
+              <div class="col-md-4"><a href="/newPost"><button class="btn btn-success">New Post</button></a></div>
+              <div class="col-md-4"><a href="/logout"><button class="btn btn-primary" >Logout</button></a></div>
 
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-md-4"><!-- <a href="/blogSettings"><button class="btn btn-primary" >Blog Settings</button></a> --></div>
+              <div class="col-md-4"><a href="/post/drafts"><button class="btn btn-success">All Drafts</button></a></div>
+              <div class="col-md-4"><!-- <a href="/logout"><button class="btn btn-primary" >Logout</button></a> --></div>
+
+            </div>
           </div>
         </div>
       </div>
-    </div>
   </header>
 
 <!-- Main Content -->
