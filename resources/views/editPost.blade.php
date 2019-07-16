@@ -1,5 +1,10 @@
 @extends('baseplate')
 @section('content')
+<?php
+$response->headers->add(array(
+   'Cache-Control' => 'no-cache'
+));
+?>
 <style>
   #post-title:hover {
     cursor: pointer;
