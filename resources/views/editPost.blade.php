@@ -259,7 +259,7 @@
         $('.tokenize-tags').append(`<option value="`+data[i]['id']+`">`+data[i]['name']+`</option>`);
       }
       @endforeach
-      $('.tokenize-tags').append(`<option value="`+data[i]['id']+`">`+data[i]['name']+`</option>`);
+      //$('.tokenize-tags').append(`<option value="`+data[i]['id']+`">`+data[i]['name']+`</option>`);
     })
     $('.tokenize-tags').tokenize2();
    }

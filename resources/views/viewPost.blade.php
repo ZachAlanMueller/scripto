@@ -105,10 +105,21 @@
 <!-- Main Content -->
 <br>
 <div id="container-preview" class="container">
-   <div id="preview-holder">{!!$postInfo->content!!}</div>
-   <br>
-   <div class="float-right" style="color:#504848;font-size:12px;">{{$postInfo->name}}</div><br>
-   <div class="float-right" style="color:#504848;font-size:12px;">{{$date}}</div>
+
+    <div id="preview-holder">{!!$postInfo->content!!}</div>
+      <div class="row">
+        <br>
+        <div class="col-md-6">
+          @if(Auth::check())
+          <a href="/edit/{{$postInfo->id}}"><button class="btn btn-success btn-tag"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit Post</button></a>
+          @endif
+        </div>
+        <div class="col-md-6">
+          <div class="float-right" style="color:#504848;font-size:12px;">{{$postInfo->name}}</div><br>
+          <div class="float-right" style="color:#504848;font-size:12px;">{{$date}}</div>
+        </div>
+      </div>
+    </div>
 </div>
 <br><br>
 @endsection

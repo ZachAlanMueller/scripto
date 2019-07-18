@@ -20,6 +20,7 @@ Route::get('/post/all', 'BlogController@allPosts');
 Route::get('/post/drafts', 'BlogController@allDrafts');
 Route::get('/post/{id}', 'BlogController@viewPost');
 Route::get('/draft/{id}', 'BlogController@editPost');
+Route::get('/edit/{id}', 'BlogController@editPost');
 
 
 

@@ -62,6 +62,7 @@ class BlogController extends Controller
   		->where('post_tag_xref.post_id', $id)
   		->get();
   		return view('editPost')
+  		->with('post_id', $id)
   		->with('draft', $draft)
   		->with('tags', $tags);
   	}
