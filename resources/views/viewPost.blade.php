@@ -109,7 +109,7 @@
     <div id="preview-holder">{!!$postInfo->content!!}</div>
       <div class="row">
         <br>
-        <div class="col-md-6">
+        <div class="col-md-6 col-lg-8">
           @if(Auth::check())
           <a href="/edit/{{$postInfo->id}}"><button class="btn btn-success btn-tag"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit Post</button></a>
           @endif
