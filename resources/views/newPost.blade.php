@@ -271,4 +271,14 @@
    $('#container-preview').hide();
    getTags();
 </script>
+<script type="text/javascript">
+  $(window).on('beforeunload', function(){
+    var c=confirm();
+    if(c){
+      return true;
+    }
+    else
+      return false;
+    });
+</script>
 @endsection
