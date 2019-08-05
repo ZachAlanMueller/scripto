@@ -155,6 +155,7 @@
    var post_id = 0;
    @endif
    var private = 0;
+   var regular = 1;
    var draft = 1;
    var title = "";
    var content = "";
@@ -265,10 +266,12 @@
    }
    $('#draft').click(function(){
      draft = 1;
+     regular = 0;
      savePost();
    });
    $('#publish').click(function(){
      draft = 0;
+     regular = 0;
      savePost();
    });
    $('.preview-switcher').click(function(){
@@ -280,15 +283,17 @@
    $('#tags-warning').hide();
    $('#container-preview').hide();
    getTags();
-</script>
-<script type="text/javascript">
-  $(window).on('beforeunload', function(){
-    var c=confirm();
-    if(c){
-      return true;
-    }
-    else
-      return false;
-    });
+  
+    $(window).on('beforeunload', function(){
+      if(regular == 1){
+        var c=confirm();
+        if(c){
+          return true;
+        }
+        else
+          return false;
+        }
+      });
+  
 </script>
 @endsection
