@@ -186,6 +186,7 @@
      theme: 'snow'
    });
    function savePost(){
+    regular = 0;
     if( $('input#public').is(':checked') ){
       private = 0;
     }
